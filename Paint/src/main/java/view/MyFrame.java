@@ -14,4 +14,8 @@ public class MyFrame extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
+
+    public static void main(String[] args) {
+        new MyFrame();
+    }
 }
