@@ -7,12 +7,10 @@ public class MyFrame extends JFrame {
     private MyPanel panel;
 
     public MyFrame() {
-        panel = new MyPanel();
+        panel= new MyPanel();
         add(panel);
         pack();
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
     }
-
 }
