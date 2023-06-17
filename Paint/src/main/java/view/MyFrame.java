@@ -16,6 +16,7 @@ public class MyFrame extends JFrame {
     }
 
     public static void main(String[] args) {
+        // Test merge on github
         new MyFrame();
     }
 }
