@@ -15,6 +15,7 @@ public class MyFrame extends JFrame {
         setLocationRelativeTo(null);
     }
 
+
     public static void main(String[] args) {
         // Test merge on github
         new MyFrame();
