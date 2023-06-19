@@ -8,4 +8,5 @@ public class MyPanel extends JPanel {
         this.setBounds(0,0,500,400);
         this.setBackground(Color.CYAN);
     }
+
 }
