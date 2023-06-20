@@ -22,5 +22,3 @@ rad.json
 TestResults.xml
 .idea/
 *.pptx
-target/
-*.class
