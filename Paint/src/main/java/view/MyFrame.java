@@ -12,7 +12,7 @@ public class MyFrame extends JFrame {
         panel = new MyPanel(controller);
         add(panel);
 //        pack();
-//        setSize(800,800);
+        setSize(800,800);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
