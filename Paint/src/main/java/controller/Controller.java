@@ -1,2 +1,9 @@
-package controller;public class Controller {
+package controller;
+
+import java.awt.event.ActionListener;
+
+public class Controller {
+    public ActionListener getColorAction() {
+        return null;
+    }
 }
