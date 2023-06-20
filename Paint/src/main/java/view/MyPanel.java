@@ -11,5 +11,6 @@ public class MyPanel extends JPanel {
         this.setBounds(0,     0, 500, 400);
         this.setBackground(Color.CYAN);
         this.add(new ColorPanel(controller));
+        this.add(new DrawPaint(controller),BorderLayout.CENTER);
     }
 }
