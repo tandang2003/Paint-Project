@@ -22,6 +22,7 @@ public class DrawPaint extends JPanel {
         super.paintComponent(g);
         for( AShape shape : listShape){
 //            shape.draw(g);
+            shape.draw(g);
         }
     }
 }
