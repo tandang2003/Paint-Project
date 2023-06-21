@@ -12,8 +12,14 @@ public class MyFrame extends JFrame {
         panel = new MyPanel(controller);
         add(panel);
 //        pack();
-//        setSize(800,800);
+        setSize(800,800);
+
+
+        // vu xuan chien test
         setVisible(true);
+=======
+//        setVisible(true);
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
