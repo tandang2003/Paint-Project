@@ -17,7 +17,9 @@ import java.awt.event.ActionListener;
 public class ColorPanel extends JPanel {
     ActionListener colorAction;
 
+
     public static Color[] colors = {
+
 
 
 
@@ -46,7 +48,9 @@ public class ColorPanel extends JPanel {
 
     public ColorPanel(Controller controller) {
 
+
         setLayout(new GridLayout(2, 15));
+
 
         if(controller != null){
             this.colorAction = controller.getColorAction();
@@ -55,6 +59,7 @@ public class ColorPanel extends JPanel {
             }
 
         }
-
     }
+
+
 }

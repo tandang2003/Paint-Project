@@ -54,5 +54,3 @@ public abstract class AShape {
         this.color = color;
     }
 
-    public abstract void draw(Graphics g);
-}

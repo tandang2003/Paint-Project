@@ -15,6 +15,5 @@ public class MyPanel extends JPanel {
         this.add(new ColorPanel(controller), BorderLayout.NORTH);
         this.add(new ShapPanel(controller), BorderLayout.WEST);
         this.add(new DrawPaint(controller), BorderLayout.CENTER);
-
     }
 }
