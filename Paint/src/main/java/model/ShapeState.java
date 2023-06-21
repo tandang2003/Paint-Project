@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 
 public class ShapeState {
+
     public static AShape currShape = new Line();
     public static int typeShape = 1;
     public static Color currColor = Color.black;
