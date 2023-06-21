@@ -1,6 +1,7 @@
 package controller;
 
 
+
 import model.ShapeState;
 import view.ColorPanel;
 
@@ -15,7 +16,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Controller {
-
 
     ShapeState shapeState;
 

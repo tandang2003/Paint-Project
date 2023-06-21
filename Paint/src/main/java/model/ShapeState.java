@@ -1,4 +1,5 @@
 
+
 package model;
 
 import java.awt.Color;
@@ -41,5 +42,5 @@ public class ShapeState {
         return currShape;
     }
 
-
 }
+

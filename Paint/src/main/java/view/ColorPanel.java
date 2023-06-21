@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller;
+
 import model.ShapeState;
 
 import model.ShapeState;
@@ -17,6 +18,7 @@ public class ColorPanel extends JPanel {
     ActionListener colorAction;
 
     public static Color[] colors = {
+
 
 
             Color.BLUE, Color.CYAN, Color.RED,
@@ -46,15 +48,13 @@ public class ColorPanel extends JPanel {
 
         setLayout(new GridLayout(2, 15));
 
-        if (controller != null) {
+        if(controller != null){
             this.colorAction = controller.getColorAction();
-        }
-        setLayout(new GridLayout(2, 15));
-        for (int i = 0; i < 30; i++) {
-            add(new ColorButton(colors[i], i, colorAction));
-        }
+            for (int i = 0; i < 30; i++){
+                add(new ColorButton(colors[i],i, colorAction));
+            }
 
+        }
 
     }
-
 }
