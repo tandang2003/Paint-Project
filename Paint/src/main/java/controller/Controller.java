@@ -1,14 +1,8 @@
 package controller;
-
-
 import model.ShapeState;
 import view.ColorPanel;
-
-
 import model.ShapeState;
 import view.ColorPanel;
-
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,9 +16,8 @@ public class Controller {
     }
 
 
+
     public ActionListener getColorAction() {
-
-
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -36,5 +29,7 @@ public class Controller {
 
             }
         };
+
     }
+
 }

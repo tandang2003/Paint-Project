@@ -18,9 +18,6 @@ public class ColorPanel extends JPanel {
     ActionListener colorAction;
 
     public static Color[] colors = {
-
-
-
             Color.BLUE, Color.CYAN, Color.RED,
             Color.getHSBColor(189, 183, 107),//mau cam dat
             Color.MAGENTA, Color.PINK,
@@ -48,6 +45,7 @@ public class ColorPanel extends JPanel {
 
         setLayout(new GridLayout(2, 15));
 
+
         if(controller != null){
             this.colorAction = controller.getColorAction();
             for (int i = 0; i < 30; i++){
@@ -55,6 +53,5 @@ public class ColorPanel extends JPanel {
             }
 
         }
-
     }
 }

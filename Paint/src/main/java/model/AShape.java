@@ -4,6 +4,7 @@ import java.awt.*;
 
 public abstract class AShape {
 
+
     protected Point p1;
     protected Point p2;
     protected Color color;
@@ -13,6 +14,7 @@ public abstract class AShape {
         this.p2 = p2;
         this.color = color;
     }
+
 
 
     public AShape(Point p1, Point p2) {
@@ -27,7 +29,6 @@ public abstract class AShape {
 
     public AShape() {
     }
-
 
     public void setP1(Point p1) {
         this.p1 = p1;
@@ -52,4 +53,6 @@ public abstract class AShape {
     }
 
     public abstract void draw(Graphics g);
+
 }
+
