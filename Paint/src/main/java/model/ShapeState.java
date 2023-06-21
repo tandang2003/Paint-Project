@@ -1,3 +1,4 @@
+
 package model;
 
 import java.awt.Color;
@@ -38,4 +39,7 @@ public class ShapeState {
 		}
 		return currShape;
 	}
+
+package model;public class ShapeState {
+
 }
