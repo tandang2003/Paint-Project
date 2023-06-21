@@ -18,11 +18,11 @@ public class ColorPanel extends JPanel {
 
     public static Color[] colors = {
 
-
     public static Color[] colors = {
 
 
     private Color[] colors = {
+
 
             Color.BLUE, Color.CYAN, Color.RED,
             Color.getHSBColor(189, 183, 107),//mau cam dat
@@ -48,7 +48,7 @@ public class ColorPanel extends JPanel {
     };
 
     public ColorPanel(Controller controller) {
-
+        setLayout(new GridLayout(2, 15));
         if (controller != null) {
 
 
@@ -59,7 +59,6 @@ public class ColorPanel extends JPanel {
         for (int i = 0; i < 30; i++) {
             add(new ColorButton(colors[i], i, colorAction));
         }
-//        setSize(300, 40);
 
 
     }
@@ -119,4 +118,5 @@ public class ColorPanel extends JPanel {
 
 
     }
+
 }
