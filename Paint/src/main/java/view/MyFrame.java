@@ -13,7 +13,13 @@ public class MyFrame extends JFrame {
         add(panel);
 //        pack();
         setSize(800,800);
+
+
+        // vu xuan chien test
+        setVisible(true);
+=======
 //        setVisible(true);
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
