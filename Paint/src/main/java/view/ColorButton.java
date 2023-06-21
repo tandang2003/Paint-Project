@@ -14,6 +14,8 @@ public class ColorButton extends JButton {
 
         addActionListener(action);
 
+        addActionListener(action);
+
     }
 
     @Override

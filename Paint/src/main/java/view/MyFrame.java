@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller;
+import model.ShapeState;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,12 +18,6 @@ public class MyFrame extends JFrame {
 
         // vu xuan chien test
         setVisible(true);
-
-
-
-
-
-
 //        setVisible(true);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -32,6 +27,6 @@ public class MyFrame extends JFrame {
 
     public static void main(String[] args) {
         // Test merge on github
-        new MyFrame(null);
+        new MyFrame(new Controller(new ShapeState()));
     }
 }

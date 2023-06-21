@@ -12,6 +12,13 @@ public abstract class AShape {
     public abstract boolean getFill();
     public abstract void drawAgain(Graphics g) ;
 
+
+
     public abstract void draw(Graphics g);
+
+
+
+    public abstract void draw(Graphics g);
+
 
 }

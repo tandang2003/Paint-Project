@@ -29,6 +29,5 @@ public class Point {
 	        this.y = y;
 	    }
 
-package model;public class Point {
 
-}
+

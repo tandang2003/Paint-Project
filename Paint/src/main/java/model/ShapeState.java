@@ -40,6 +40,3 @@ public class ShapeState {
 		return currShape;
 	}
 
-package model;public class ShapeState {
-
-}
