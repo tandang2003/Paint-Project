@@ -30,11 +30,6 @@ public abstract class AShape {
     public AShape() {
     }
 
-
-    public Point getP1() {
-        return p1;
-    }
-
     public void setP1(Point p1) {
         this.p1 = p1;
     }
@@ -56,5 +51,8 @@ public abstract class AShape {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public abstract void draw(Graphics g);
+
 }
 
