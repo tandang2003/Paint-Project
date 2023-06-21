@@ -33,16 +33,24 @@ public class ColorPanel extends JPanel {
     };
 
     public ColorPanel(Controller controller) {
-        if(controller != null){
+        if (controller != null) {
             this.colorAction = controller.getColorAction();
-            for (int i = 0; i < 30; i++){
-                add(new ColorButton(colors[i],i, colorAction));
-            }
-
         }
-
         setLayout(new GridLayout(2, 15));
+        for (int i = 0; i < 30; i++) {
+            add(new ColorButton(colors[i], i, colorAction));
+        }
+//        setSize(300, 40);
 
+
+    }
+
+    public static void main(String[] args) {
+        JFrame a = new JFrame();
+        a.setSize(800, 800);
+        a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        a.add(new ColorPanel(new Controller()), BorderLayout.NORTH);
+        a.setVisible(true);
 
     }
 }

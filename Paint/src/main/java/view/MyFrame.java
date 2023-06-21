@@ -18,6 +18,9 @@ public class MyFrame extends JFrame {
         // vu xuan chien test
         setVisible(true);
 
+
+
+
 //        setVisible(true);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
