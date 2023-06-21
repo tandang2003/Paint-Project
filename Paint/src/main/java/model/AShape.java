@@ -41,7 +41,7 @@ public abstract class AShape {
     }
 
 
+
+
     public abstract void draw(Graphics g);
-
-
 }
