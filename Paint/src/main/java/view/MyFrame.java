@@ -19,8 +19,7 @@ public class MyFrame extends JFrame {
         setLocationRelativeTo(null);
     }
 
-
-    public static void main(String[] args) {
-        new MyFrame(new Controller(new ShapeState()));
+    public void repaintDrawPaint() {
+        panel.repaintDrawPaint();
     }
 }
