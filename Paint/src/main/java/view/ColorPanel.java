@@ -17,12 +17,7 @@ import java.awt.event.ActionListener;
 public class ColorPanel extends JPanel {
     ActionListener colorAction;
 
-
     public static Color[] colors = {
-
-
-
-
             Color.BLUE, Color.CYAN, Color.RED,
             Color.getHSBColor(189, 183, 107),//mau cam dat
             Color.MAGENTA, Color.PINK,
@@ -48,7 +43,6 @@ public class ColorPanel extends JPanel {
 
     public ColorPanel(Controller controller) {
 
-
         setLayout(new GridLayout(2, 15));
 
 
@@ -60,6 +54,4 @@ public class ColorPanel extends JPanel {
 
         }
     }
-
-
 }
