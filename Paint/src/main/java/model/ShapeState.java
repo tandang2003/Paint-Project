@@ -42,6 +42,5 @@ public class ShapeState {
         return currShape;
     }
 
-
 }
 
