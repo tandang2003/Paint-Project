@@ -14,8 +14,15 @@ public class MyFrame extends JFrame {
 //        pack();
         setSize(800,800);
 
+
         // vu xuan chien test
         setVisible(true);
+
+
+
+
+//        setVisible(true);
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
