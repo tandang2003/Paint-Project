@@ -23,4 +23,5 @@ TestResults.xml
 .idea/
 *.pptx
 target/
+out/
 
