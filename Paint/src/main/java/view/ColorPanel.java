@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller;
+import model.ShapeState;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class ColorPanel extends JPanel {
     ActionListener colorAction;
-    private Color[] colors = {
+    public static Color[] colors = {
             Color.BLUE, Color.CYAN, Color.RED,
             Color.getHSBColor(189, 183, 107),//mau cam dat
             Color.MAGENTA, Color.PINK,
@@ -49,7 +50,7 @@ public class ColorPanel extends JPanel {
         JFrame a = new JFrame();
         a.setSize(800, 800);
         a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        a.add(new ColorPanel(new Controller()), BorderLayout.NORTH);
+        a.add(new ColorPanel(new Controller(new ShapeState())), BorderLayout.NORTH);
         a.setVisible(true);
 
     }
