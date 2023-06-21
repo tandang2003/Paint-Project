@@ -32,4 +32,5 @@ public class MyFrame extends JFrame {
 
         new MyFrame(new Controller(new ShapeState()));
 
+    }
 }
