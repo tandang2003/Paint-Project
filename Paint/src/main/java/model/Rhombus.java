@@ -10,8 +10,14 @@ public class Rhombus extends AShape {
         super(p1, p2, color);
     }
 
+
+    public Rhombus(Point p1, Point p2) {
+        super(p1, p2);
+    }
+
     public Rhombus() {
     }
+
 
     @Override
     public void draw(Graphics g) {

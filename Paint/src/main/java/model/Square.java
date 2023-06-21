@@ -7,6 +7,10 @@ public class Square extends AShape {
         super(p1, p2, color);
     }
 
+    public Square(Point p1, Point p2) {
+        super(p1, p2);
+    }
+
     public Square() {
     }
 

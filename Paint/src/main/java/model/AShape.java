@@ -13,6 +13,17 @@ public abstract class AShape {
         this.color = color;
     }
 
+
+    public AShape(Point p1, Point p2) {
+        this.p1 = p1;
+        this.p2 = p2;
+        this.color = Color.black;
+    }
+
+    public Point getP1() {
+        return p1;
+    }
+
     public AShape() {
     }
 
@@ -30,17 +41,17 @@ public abstract class AShape {
 
     public void setP2(Point p2) {
         this.p2 = p2;
+
     }
 
     public Color getColor() {
         return color;
     }
 
+
     public void setColor(Color color) {
         this.color = color;
     }
-
-
 
 
     public abstract void draw(Graphics g);
