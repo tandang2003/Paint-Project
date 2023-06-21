@@ -24,4 +24,8 @@ TestResults.xml
 *.pptx
 target/
 out/
+bin/
+.settings/
+*.project
+*.classpath
 
