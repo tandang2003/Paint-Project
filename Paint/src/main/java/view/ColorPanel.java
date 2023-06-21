@@ -6,6 +6,9 @@ import model.ShapeState;
 import model.ShapeState;
 
 
+import model.ShapeState;
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -15,7 +18,9 @@ public class ColorPanel extends JPanel {
 
     public static Color[] colors = {
 
+
     public static Color[] colors = {
+
 
     private Color[] colors = {
 
@@ -43,7 +48,35 @@ public class ColorPanel extends JPanel {
     };
 
     public ColorPanel(Controller controller) {
+
         if (controller != null) {
+
+
+        if (controller != null) {
+            this.colorAction = controller.getColorAction();
+        }
+        setLayout(new GridLayout(2, 15));
+        for (int i = 0; i < 30; i++) {
+            add(new ColorButton(colors[i], i, colorAction));
+        }
+//        setSize(300, 40);
+
+
+    }
+
+    public static void main(String[] args) {
+        JFrame a = new JFrame();
+        a.setSize(800, 800);
+        a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        a.add(new ColorPanel(new Controller(new ShapeState())), BorderLayout.NORTH);
+        a.setVisible(true);
+
+        if(controller != null){
+            this.colorAction = controller.getColorAction();
+            for (int i = 0; i < 30; i++){
+                add(new ColorButton(colors[i],i, colorAction));
+            }
+
 
         if (controller != null) {
             this.colorAction = controller.getColorAction();
@@ -82,6 +115,7 @@ public class ColorPanel extends JPanel {
         a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         a.add(new ColorPanel(new Controller(new ShapeState())), BorderLayout.NORTH);
         a.setVisible(true);
+
 
 
     }

@@ -30,6 +30,4 @@ public class Point {
 	    }
 
 
-package model;public class Point {
 
-}
