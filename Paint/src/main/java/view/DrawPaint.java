@@ -9,18 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DrawPaint extends JPanel {
-    List<AShape> listShape= new ArrayList<>();
-    AShape lastShape=null;
-    boolean isFill;
+    List<AShape> listShape = new ArrayList<>();
+    AShape lastShape = null;
     Controller controller;
+
     public DrawPaint(Controller controller) {
-        this.controller=controller;
+        this.controller = controller;
     }
+
     @Override
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
         setBackground(Color.WHITE);
         super.paintComponent(g);
-        for( AShape shape : listShape){
+        for (AShape shape : listShape) {
 //            shape.draw(g);
             shape.draw(g);
         }
