@@ -1,19 +1,47 @@
+
+
+
 package model;
 
-import java.awt.*;
+import java.awt.Color;
+import java.util.ArrayList;
+
 
 public class ShapeState {
-    private AShape curShape;
 
+    public static AShape currShape = new Line();
+    public static int typeShape = 1;
+    public static Color currColor = Color.black;
+    public static ArrayList<AShape> listShape = new ArrayList<>();
 
-    public ShapeState(AShape curShape) {
-        this.curShape = curShape;
+    public static void add() {
+        currShape.setColor(currColor);
+        listShape.add(currShape);
+        currShape = getShape();
     }
 
-    public void setNewColor(Color color){
-        curShape.setColor(color);
+    public static void createShape() {
+        currShape = getShape();
+        currShape.setColor(currColor);
     }
-    public void setCurShape(int i){
 
+    public static void setCurrColor(Color color) {
+        currColor = color;
     }
+
+    private static AShape getShape() {
+        switch (typeShape) {
+            case 0:
+                return new Rhombus();
+            case 1:
+                return new Line();
+            case 2:
+                return new Square();
+
+
+        }
+        return currShape;
+    }
+
 }
+

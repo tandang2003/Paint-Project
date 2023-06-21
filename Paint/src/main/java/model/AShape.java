@@ -3,17 +3,33 @@ package model;
 import java.awt.*;
 
 public abstract class AShape {
-    private Point p1;
-    private Point p2;
-    private Color color;
+
+
+    protected Point p1;
+    protected Point p2;
+    protected Color color;
+
+    public AShape(Point p1, Point p2, Color color) {
+        this.p1 = p1;
+        this.p2 = p2;
+        this.color = color;
+    }
+
+
 
     public AShape(Point p1, Point p2) {
         this.p1 = p1;
         this.p2 = p2;
-        color= Color.BLACK;
+        this.color = Color.black;
     }
 
-    public abstract void draw(Graphics g);
+    public Point getP1() {
+        return p1;
+    }
+
+    public AShape() {
+    }
+
 
     public Point getP1() {
         return p1;
@@ -29,13 +45,16 @@ public abstract class AShape {
 
     public void setP2(Point p2) {
         this.p2 = p2;
+
     }
 
     public Color getColor() {
         return color;
     }
 
+
     public void setColor(Color color) {
         this.color = color;
     }
 }
+
