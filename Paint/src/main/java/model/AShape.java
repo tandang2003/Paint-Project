@@ -3,6 +3,7 @@ package model;
 import java.awt.*;
 
 public abstract class AShape {
+
     protected Point p1;
     protected Point p2;
     protected Color color;
@@ -52,6 +53,7 @@ public abstract class AShape {
     public void setColor(Color color) {
         this.color = color;
     }
+
 
 
     public abstract void draw(Graphics g);

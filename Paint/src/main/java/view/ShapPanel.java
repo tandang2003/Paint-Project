@@ -3,7 +3,9 @@ package view;
 import controller.Controller;
 
 import javax.swing.*;
+
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+
 import java.awt.*;
 
 public class ShapPanel extends JPanel {
@@ -12,13 +14,16 @@ public class ShapPanel extends JPanel {
     public static final int REC = 3;
     public static final int TRIANGLE = 4;
     public static final int SQUARE = 5;
+
     public static final int BALANCER = 6;
     public static final int DIAMOND = 7;
     public static final int PEN = 8;
+
     static int padding = 5;
     int shapeType;
 
     public ShapPanel(Controller controller) {
+
         try {
             UIManager.setLookAndFeel(NimbusLookAndFeel.class.getName());
         } catch (ClassNotFoundException e) {
@@ -79,6 +84,7 @@ public class ShapPanel extends JPanel {
         JButton penBtn = new JButton();
 //        penBtn.setBounds(5, 205, 40, 40);
         Image imagePen = new ImageIcon("src\\main\\java\\pictures\\tie.png").getImage();
+
         ImageIcon btPen = new ImageIcon(imagePen.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         penBtn.setIcon(btPen);
         add(penBtn);
