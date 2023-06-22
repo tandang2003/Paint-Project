@@ -21,5 +21,6 @@ public class MyFrame extends JFrame {
 
     public void repaintDrawPaint() {
         panel.repaintDrawPaint();
+
     }
 }
