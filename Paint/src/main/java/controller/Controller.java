@@ -27,6 +27,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String actionCommand = e.getActionCommand();
+                System.out.println(actionCommand);
                 int color = Integer.valueOf(actionCommand);
                 ShapeState.setCurrColor(ColorPanel.colors[color]);
             }
