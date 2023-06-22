@@ -18,7 +18,7 @@ color=Color.black;
     @Override
     public void draw(Graphics g) {
         //kljkjljlkjlkk
-        Graphics2D g2d = (Graphics2D) g;
+        Graphics2D g2d = (Graphics2D) g;ểtrt
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         g2d.setStroke(new  BasicStroke());
