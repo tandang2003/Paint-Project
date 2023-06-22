@@ -5,6 +5,7 @@ import java.awt.*;
 public class Square extends AShape {
     public Square(Point p1, Point p2, Color color) {
         super(p1, p2, color);
+//
     }
 
     public Square(Point p1, Point p2) {
