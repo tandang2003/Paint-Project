@@ -3,6 +3,7 @@ package view;
 import controller.Controller;
 
 import javax.swing.*;
+
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
 
@@ -12,13 +13,16 @@ public class ShapPanel extends JPanel {
     public static final int REC = 3;
     public static final int TRIANGLE = 4;
     public static final int SQUARE = 5;
+
     public static final int BALANCER = 6;
     public static final int DIAMOND = 7;
     public static final int PEN = 8;
+
     static int padding = 5;
     int shapeType;
 
     public ShapPanel(Controller controller) {
+
         try {
             UIManager.setLookAndFeel(NimbusLookAndFeel.class.getName());
         } catch (ClassNotFoundException e) {

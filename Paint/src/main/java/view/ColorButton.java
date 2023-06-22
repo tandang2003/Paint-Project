@@ -12,7 +12,6 @@ public class ColorButton extends JButton {
         setActionCommand("" + i);
         setPreferredSize(new Dimension(25, 25));
         addActionListener(action);
-        addActionListener(action);
 
     }
 

@@ -4,16 +4,56 @@ import java.awt.*;
 
 public abstract class AShape {
 
-	public abstract void setP1(int x, int y);
-    public abstract void setP2(int x, int y);
-    public abstract void setColor(Color color);
-    public abstract Color getColor();
+
+    protected Point p1;
+    protected Point p2;
+    protected Color color;
+
+    public AShape(Point p1, Point p2, Color color) {
+        this.p1 = p1;
+        this.p2 = p2;
+        this.color = color;
+    }
+
+
+
+    public AShape(Point p1, Point p2) {
+        this.p1 = p1;
+        this.p2 = p2;
+        this.color = Color.black;
+    }
+    public AShape() {
+    }
+
+
+    public Point getP1() {
+        return p1;
+    }
+
+    public void setP1(Point p1) {
+        System.out.println(p1.toString());
+        this.p1 = p1;
+    }
+
+    public Point getP2() {
+        return p2;
+    }
+
+    public void setP2(Point p2) {
+        System.out.println(p2.toString());
+        this.p2 = p2;
+
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
     public abstract void draw(Graphics g);
-    public abstract boolean getFill();
-    public abstract void drawAgain(Graphics g) ;
-
-
-    public abstract void draw(Graphics g);
-
 
 }
+

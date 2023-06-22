@@ -22,6 +22,11 @@ rad.json
 TestResults.xml
 .idea/
 *.pptx
-target/
+target/*.class/
 out/
+bin/
+.settings/
+*.project
+*.classpath
+
 
