@@ -9,20 +9,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DrawPaint extends JPanel {
-    List<AShape> listShape = new ArrayList<>();
-    AShape lastShape = null;
+
     Controller controller;
 
     public DrawPaint(Controller controller) {
         this.controller = controller;
+
+        addMouseListener(controller.getMouseListener());
+        addMouseMotionListener(controller.getMouseMotionListener());
+
     }
 
     @Override
     public void paintComponent(Graphics g) {
         setBackground(Color.WHITE);
         super.paintComponent(g);
-        for (AShape shape : listShape) {
-//            shape.draw(g);
+
+        for (AShape shape : controller.getListShape()) {
+
             shape.draw(g);
         }
     }

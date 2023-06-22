@@ -1,14 +1,7 @@
 package view;
 
 import controller.Controller;
-
 import model.ShapeState;
-
-import model.ShapeState;
-
-
-import model.ShapeState;
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,16 +35,19 @@ public class ColorPanel extends JPanel {
     };
 
     public ColorPanel(Controller controller) {
+        if (controller != null) {
 
-        setLayout(new GridLayout(2, 15));
+
+            setLayout(new GridLayout(2, 15));
 
 
-        if(controller != null){
-            this.colorAction = controller.getColorAction();
-            for (int i = 0; i < 30; i++){
-                add(new ColorButton(colors[i],i, colorAction));
+            if (controller != null) {
+                this.colorAction = controller.getColorAction();
+
             }
-
+            for (int i = 0; i < 30; i++) {
+                add(new ColorButton(colors[i], i, colorAction));
+            }
         }
     }
 }

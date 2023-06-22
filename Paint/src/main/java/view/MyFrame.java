@@ -13,23 +13,20 @@ public class MyFrame extends JFrame {
     public MyFrame(Controller controller) {
         panel = new MyPanel(controller);
         add(panel);
-
         setSize(800, 800);
-
-
-        // vu xuan chien test
         setVisible(true);
-
-//        setVisible(true);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
 
+    public void repaintDrawPaint() {
+        panel.repaintDrawPaint();
+
+
+    }
 
     public static void main(String[] args) {
-        // Test merge on github
-
-        new MyFrame(new Controller(new ShapeState()));
-
+        new MyFrame(new Controller());
+    }
 }
