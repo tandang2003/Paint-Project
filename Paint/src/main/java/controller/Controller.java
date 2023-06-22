@@ -1,8 +1,7 @@
 package controller;
 
-import model.AShape;
+import model.*;
 import model.Point;
-import model.ShapeState;
 import view.ColorPanel;
 import model.ShapeState;
 import view.ColorPanel;
@@ -29,11 +28,38 @@ public class Controller {
                 String actionCommand = e.getActionCommand();
                 int color = Integer.valueOf(actionCommand);
                 ShapeState.setCurrColor(ColorPanel.colors[color]);
+                System.out.println("chay mau");
+
             }
         };
 
     }
-
+    //shape actionlistener
+    public ActionListener getShapeAction(){
+        return new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("chay shape");
+                String shapeActionCommand = e.getActionCommand();
+                int shapeindex = Integer.valueOf(shapeActionCommand);
+                ShapeState.setShapeIndexing(shapeindex);
+                switch (shapeindex){
+                    case 1:
+                        System.out.println("chay line");
+                        break;
+                    case 5:
+                        System.out.println("chay vuong");
+                        break;
+                    case 7:
+                        System.out.println("chay dimand");
+                        break;
+                    case 8:
+                        System.out.println("chay pen");
+                        break;
+                }
+            }
+        };
+    }
     public void initView() {
         myFrame = new MyFrame(this);
     }
@@ -81,5 +107,7 @@ public class Controller {
 
             }
         };
+
     }
+
 }
