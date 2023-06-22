@@ -37,6 +37,7 @@ public class ColorPanel extends JPanel {
     public ColorPanel(Controller controller) {
         if (controller != null) {
 
+
             setLayout(new GridLayout(2, 15));
 
 
