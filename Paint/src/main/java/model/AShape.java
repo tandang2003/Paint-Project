@@ -22,15 +22,16 @@ public abstract class AShape {
         this.p2 = p2;
         this.color = Color.black;
     }
+    public AShape() {
+    }
+
 
     public Point getP1() {
         return p1;
     }
 
-    public AShape() {
-    }
-
     public void setP1(Point p1) {
+        System.out.println(p1.toString());
         this.p1 = p1;
     }
 
@@ -39,6 +40,7 @@ public abstract class AShape {
     }
 
     public void setP2(Point p2) {
+        System.out.println(p2.toString());
         this.p2 = p2;
 
     }
@@ -51,7 +53,6 @@ public abstract class AShape {
     public void setColor(Color color) {
         this.color = color;
     }
-
     public abstract void draw(Graphics g);
 
 }
