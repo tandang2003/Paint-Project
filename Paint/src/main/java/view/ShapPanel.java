@@ -5,10 +5,12 @@ import controller.Controller;
 import javax.swing.*;
 
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
-
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ShapPanel extends JPanel {
+    //    ActionListener shapeAction;
     public static final int LINE = 1;
     public static final int CIRCLE = 2;
     public static final int REC = 3;
@@ -44,6 +46,8 @@ public class ShapPanel extends JPanel {
         Image imageLine = new ImageIcon("src\\main\\java\\pictures\\line.png").getImage();
         ImageIcon btline = new ImageIcon(imageLine.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         lineBtn.setIcon(btline);
+        lineBtn.setActionCommand(String.valueOf(LINE));
+        lineBtn.addActionListener(controller.getShapeAction());
         add(lineBtn);
 
         JButton ovalBtn = new JButton();
@@ -51,6 +55,8 @@ public class ShapPanel extends JPanel {
         Image imageOval = new ImageIcon("src\\main\\java\\pictures\\circle.png").getImage();
         ImageIcon btOval = new ImageIcon(imageOval.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         ovalBtn.setIcon(btOval);
+//        ovalBtn.setActionCommand('0');
+//        ovalBtn.addActionListener(controller.getShapeAction());
         add(ovalBtn);
 
         JButton recBtn = new JButton();
@@ -72,21 +78,32 @@ public class ShapPanel extends JPanel {
         Image imageSquar = new ImageIcon("src\\main\\java\\pictures\\square.png").getImage();
         ImageIcon btSquar = new ImageIcon(imageSquar.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         squarBtn.setIcon(btSquar);
+        squarBtn.setActionCommand(String.valueOf(SQUARE));
+        squarBtn.addActionListener(controller.getShapeAction());
         add(squarBtn);
 
         JButton diamondBtn = new JButton();
 //        diamondBtn.setBounds(5, 165, 40, 40);
         Image imageDia = new ImageIcon("src\\main\\java\\pictures\\rhombus.png").getImage();
         ImageIcon btDiamond = new ImageIcon(imageDia.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        diamondBtn.setActionCommand(String.valueOf(DIAMOND));
         diamondBtn.setIcon(btDiamond);
+        diamondBtn.addActionListener(controller.getShapeAction());
+
         add(diamondBtn);
 
         JButton penBtn = new JButton();
 //        penBtn.setBounds(5, 205, 40, 40);
         Image imagePen = new ImageIcon("src\\main\\java\\pictures\\tie.png").getImage();
-
         ImageIcon btPen = new ImageIcon(imagePen.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         penBtn.setIcon(btPen);
+        penBtn.setActionCommand(String.valueOf(PEN));
+        penBtn.addActionListener(controller.getShapeAction());
         add(penBtn);
+
+        JButton expBtn = new JButton("Export File");
+        expBtn.setSize(40,40);
+        add(expBtn);
+        expBtn.addActionListener(controller.expAction());
     }
 }
