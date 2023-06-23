@@ -88,5 +88,10 @@ public class ShapPanel extends JPanel {
         ImageIcon btPen = new ImageIcon(imagePen.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         penBtn.setIcon(btPen);
         add(penBtn);
+
+        JButton expBtn = new JButton("Export File");
+        expBtn.setSize(40,40);
+        add(expBtn);
+        expBtn.addActionListener(controller.expAction());
     }
 }

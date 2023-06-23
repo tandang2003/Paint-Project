@@ -1,10 +1,6 @@
 package model;
 
-import java.awt.BasicStroke;
-
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 
 
 public class Line extends AShape {
@@ -24,6 +20,8 @@ public class Line extends AShape {
     @Override
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         g2d.setColor(this.color);
         g2d.setStroke(new BasicStroke());
         g2d.drawLine(p1.x, p1.y, p2.x, p2.y);
