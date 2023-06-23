@@ -15,6 +15,7 @@ public class DrawPaint extends JPanel {
     public DrawPaint(Controller controller) {
         this.controller = controller;
 
+
         addMouseListener(controller.getMouseListener());
         addMouseMotionListener(controller.getMouseMotionListener());
 
@@ -24,9 +25,7 @@ public class DrawPaint extends JPanel {
     public void paintComponent(Graphics g) {
         setBackground(Color.WHITE);
         super.paintComponent(g);
-
         for (AShape shape : controller.getListShape()) {
-
             shape.draw(g);
         }
     }

@@ -9,6 +9,24 @@ import view.MyFrame;
 
 import java.awt.*;
 import java.awt.event.*;
+
+import com.itextpdf.awt.PdfGraphics2D;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfWriter;
+import model.AShape;
+import model.Point;
+import model.ShapeState;
+import view.*;
+import model.ShapeState;
+import view.ColorPanel;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.File;
+import java.io.FileOutputStream;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +34,11 @@ public class Controller {
     MyFrame myFrame;
     List<AShape> listShape = new ArrayList<>();
 
+    JPanel panel;
+
     public Controller() {
         initView();
+        panel = this.myFrame.getDrawPaint();
     }
 
 
@@ -30,10 +51,12 @@ public class Controller {
                 ShapeState.setCurrColor(ColorPanel.colors[color]);
                 System.out.println("chay mau");
 
+
             }
         };
 
     }
+
     //shape actionlistener
     public ActionListener getShapeAction(){
         return new ActionListener(){
@@ -60,6 +83,7 @@ public class Controller {
             }
         };
     }
+
     public void initView() {
         myFrame = new MyFrame(this);
     }
@@ -78,12 +102,37 @@ public class Controller {
             public void mousePressed(MouseEvent e) {
                 ShapeState.createShape();
                 listShape.add(ShapeState.currShape);
+
                 ShapeState.currShape.setP1(new Point(e.getX(),e.getY()));
             }
 
             @Override
             public void mouseReleased(MouseEvent mouseEvent) {
                 ShapeState.currShape.setP2(new Point(mouseEvent.getX(),mouseEvent.getY()));
+                repaintDrawPaint();
+                ShapeState.createShape();
+            }
+        };
+    }
+
+
+    public MouseMotionListener getMouseMotionListener() {
+        return new MouseMotionListener() {
+            @Override
+            public void mouseDragged(MouseEvent mouseEvent) {
+                ShapeState.currShape.setP2(new Point(mouseEvent.getX(),mouseEvent.getY()));
+                repaintDrawPaint();
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent mouseEvent) {
+                ShapeState.currShape.setP1(new Point(e.getX(), e.getY()));
+            }
+
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+                ShapeState.currShape.setP2(new Point(mouseEvent.getX(), mouseEvent.getY()));
                 repaintDrawPaint();
                 ShapeState.createShape();
             }
@@ -98,7 +147,7 @@ public class Controller {
         return new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent mouseEvent) {
-                ShapeState.currShape.setP2(new Point(mouseEvent.getX(),mouseEvent.getY()));
+                ShapeState.currShape.setP2(new Point(mouseEvent.getX(), mouseEvent.getY()));
                 repaintDrawPaint();
             }
 
@@ -107,7 +156,39 @@ public class Controller {
 
             }
         };
-
     }
 
+    public ActionListener expAction() {
+       return e -> {
+           JFileChooser fileChooser = new JFileChooser();
+           int result = fileChooser.showSaveDialog(panel);
+           if (result == JFileChooser.APPROVE_OPTION) {
+               File selectedFile = fileChooser.getSelectedFile();
+               String fileName = selectedFile.getAbsolutePath();
+               exportToPDF(panel, fileName);
+               JOptionPane.showMessageDialog(panel, "File exported to: " + fileName);
+
+           }
+       };
+    }
+
+    public  void exportToPDF(Component component, String outputFileName) {
+        Document document = new Document();
+        try {
+
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(outputFileName));
+            document.open();
+            PdfContentByte contentByte = writer.getDirectContent();
+            PdfGraphics2D graphics2D = new PdfGraphics2D(contentByte, component.getWidth(), component.getHeight());
+            component.print(graphics2D);
+            graphics2D.dispose();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (document != null) {
+                document.close();
+            }
+        }
+    }
 }

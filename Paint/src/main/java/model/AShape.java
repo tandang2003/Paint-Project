@@ -52,8 +52,6 @@ public abstract class AShape {
     public void setColor(Color color) {
         this.color = color;
     }
-
     public abstract void draw(Graphics g);
-
 }
 

@@ -100,5 +100,10 @@ public class ShapPanel extends JPanel {
         penBtn.setActionCommand(String.valueOf(PEN));
         penBtn.addActionListener(controller.getShapeAction());
         add(penBtn);
+
+        JButton expBtn = new JButton("Export File");
+        expBtn.setSize(40,40);
+        add(expBtn);
+        expBtn.addActionListener(controller.expAction());
     }
 }
