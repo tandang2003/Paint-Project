@@ -1,32 +1,23 @@
 package controller;
 
-import model.*;
-import model.Point;
-import view.ColorPanel;
-import model.ShapeState;
-import view.ColorPanel;
-import view.MyFrame;
-
-import java.awt.*;
-import java.awt.event.*;
-
 import com.itextpdf.awt.PdfGraphics2D;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
 import model.AShape;
+import model.Pencil;
 import model.Point;
 import model.ShapeState;
-import view.*;
-import model.ShapeState;
 import view.ColorPanel;
+import view.MyFrame;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,8 +93,8 @@ public class Controller {
             public void mousePressed(MouseEvent e) {
                 ShapeState.createShape();
                 listShape.add(ShapeState.currShape);
-
                 ShapeState.currShape.setP1(new Point(e.getX(),e.getY()));
+
             }
 
             @Override
@@ -119,23 +110,19 @@ public class Controller {
     public MouseMotionListener getMouseMotionListener() {
         return new MouseMotionListener() {
             @Override
-            public void mouseDragged(MouseEvent mouseEvent) {
-                ShapeState.currShape.setP2(new Point(mouseEvent.getX(),mouseEvent.getY()));
+            public void mouseDragged(MouseEvent e) {
+                ShapeState.currShape.setP2(new Point(e.getX(),e.getY()));
+                if (ShapeState.typeShape == 8){
+                    ((Pencil)ShapeState.currShape).addPoint(new Point(e.getX(),e.getY()));
+                }
                 repaintDrawPaint();
             }
 
             @Override
             public void mouseMoved(MouseEvent mouseEvent) {
-                ShapeState.currShape.setP1(new Point(e.getX(), e.getY()));
+                ShapeState.currShape.setP1(new Point(mouseEvent.getX(), mouseEvent.getY()));
             }
 
-
-            @Override
-            public void mouseReleased(MouseEvent mouseEvent) {
-                ShapeState.currShape.setP2(new Point(mouseEvent.getX(), mouseEvent.getY()));
-                repaintDrawPaint();
-                ShapeState.createShape();
-            }
         };
     }
 
@@ -143,20 +130,6 @@ public class Controller {
         new Controller();
     }
 
-    public MouseMotionListener getMouseMotionListener() {
-        return new MouseMotionListener() {
-            @Override
-            public void mouseDragged(MouseEvent mouseEvent) {
-                ShapeState.currShape.setP2(new Point(mouseEvent.getX(), mouseEvent.getY()));
-                repaintDrawPaint();
-            }
-
-            @Override
-            public void mouseMoved(MouseEvent mouseEvent) {
-
-            }
-        };
-    }
 
     public ActionListener expAction() {
        return e -> {
@@ -165,30 +138,29 @@ public class Controller {
            if (result == JFileChooser.APPROVE_OPTION) {
                File selectedFile = fileChooser.getSelectedFile();
                String fileName = selectedFile.getAbsolutePath();
-               exportToPDF(panel, fileName);
+               if (!fileName.endsWith(".png") || !fileName.endsWith(".jpg") || !fileName.endsWith(".gif")){
+                   fileName += ".png";
+               }
+               exportToImage(panel, fileName);
                JOptionPane.showMessageDialog(panel, "File exported to: " + fileName);
 
            }
        };
     }
 
-    public  void exportToPDF(Component component, String outputFileName) {
-        Document document = new Document();
+    public void exportToImage(Component component, String outputFileName) {
+        BufferedImage img = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
         try {
-
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(outputFileName));
-            document.open();
-            PdfContentByte contentByte = writer.getDirectContent();
-            PdfGraphics2D graphics2D = new PdfGraphics2D(contentByte, component.getWidth(), component.getHeight());
+            Graphics2D graphics2D = img.createGraphics();
             component.print(graphics2D);
             graphics2D.dispose();
 
+            ImageIO.write(img, "png", new File(outputFileName));
+            ImageIO.write(img, "ipg", new File(outputFileName));
+            ImageIO.write(img, "gif", new File(outputFileName));
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (document != null) {
-                document.close();
-            }
         }
     }
+
 }
