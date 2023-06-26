@@ -55,8 +55,8 @@ public class ShapPanel extends JPanel {
         Image imageOval = new ImageIcon("src\\main\\java\\pictures\\circle.png").getImage();
         ImageIcon btOval = new ImageIcon(imageOval.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         ovalBtn.setIcon(btOval);
-//        ovalBtn.setActionCommand('0');
-//        ovalBtn.addActionListener(controller.getShapeAction());
+        ovalBtn.setActionCommand(CIRCLE+"");
+        ovalBtn.addActionListener(controller.getShapeAction());
         add(ovalBtn);
 
         JButton recBtn = new JButton();
@@ -64,6 +64,8 @@ public class ShapPanel extends JPanel {
         Image imageRec = new ImageIcon("src\\main\\java\\pictures\\rectangle.png").getImage();
         ImageIcon btRec = new ImageIcon(imageRec.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         recBtn.setIcon(btRec);
+        recBtn.setActionCommand(REC+"");
+        recBtn.addActionListener(controller.getShapeAction());
         add(recBtn);
 
         JButton triBtn = new JButton();
