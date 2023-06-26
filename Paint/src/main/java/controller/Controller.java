@@ -66,22 +66,24 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("chay shape");
                 String shapeActionCommand = e.getActionCommand();
+                System.out.println(shapeActionCommand);
                 int shapeindex = Integer.valueOf(shapeActionCommand);
+
                 ShapeState.setShapeIndexing(shapeindex);
-                switch (shapeindex){
-                    case 1:
-                        System.out.println("chay line");
-                        break;
-                    case 5:
-                        System.out.println("chay vuong");
-                        break;
-                    case 7:
-                        System.out.println("chay dimand");
-                        break;
-                    case 8:
-                        System.out.println("chay pen");
-                        break;
-                }
+//                switch (shapeindex){
+//                    case 1:
+//                        System.out.println("chay line");
+//                        break;
+//                    case 5:
+//                        System.out.println("chay vuong");
+//                        break;
+//                    case 7:
+//                        System.out.println("chay dimand");
+//                        break;
+//                    case 8:
+//                        System.out.println("chay pen");
+//                        break;
+//                }
             }
         };
     }
