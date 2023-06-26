@@ -28,6 +28,10 @@ public class ShapeState {
         switch (typeShape){
             case 1:
                 return new Line();
+            case 2:
+                return new Circle();
+            case 3:
+                return new Rectangle();
             case 5:
                 return new Square();
             case 7:
