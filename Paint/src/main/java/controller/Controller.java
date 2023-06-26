@@ -1,5 +1,15 @@
 package controller;
 
+import model.*;
+import model.Point;
+import view.ColorPanel;
+import model.ShapeState;
+import view.ColorPanel;
+import view.MyFrame;
+
+import java.awt.*;
+import java.awt.event.*;
+
 import com.itextpdf.awt.PdfGraphics2D;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfContentByte;
@@ -18,6 +28,7 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,9 +104,10 @@ public class Controller {
             public void mousePressed(MouseEvent e) {
                 ShapeState.createShape();
                 listShape.add(ShapeState.currShape);
-                ShapeState.currShape.setP1(new Point(e.getX(),e.getY()));
 
+                ShapeState.currShape.setP1(new Point(e.getX(),e.getY()));
             }
+
 
             @Override
             public void mouseReleased(MouseEvent mouseEvent) {
