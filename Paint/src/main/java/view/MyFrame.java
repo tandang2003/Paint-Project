@@ -1,11 +1,9 @@
 package view;
 
 import controller.Controller;
-import model.ShapeState;
 
 
 import javax.swing.*;
-import java.awt.*;
 
 public class MyFrame extends JFrame {
     private MyPanel panel;
@@ -23,10 +21,10 @@ public class MyFrame extends JFrame {
     public void repaintDrawPaint() {
         panel.repaintDrawPaint();
 
-
     }
 
-    public static void main(String[] args) {
-        new MyFrame(new Controller());
+    public JPanel getDrawPaint(){
+        return panel.drawPaint;
+
     }
 }

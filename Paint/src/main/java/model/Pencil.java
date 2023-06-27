@@ -9,12 +9,25 @@ public class Pencil extends AShape {
         super(p1, p2, color);
     }
 
+    public Pencil(Point p1, Point p2) {
+        super(p1, p2);
+    }
+    public Pencil(){
+        color=Color.black;
+    }
+
+    public void addPoint(Point p) {
+        point.add(p);
+    }
+
     @Override
     public void draw(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
+
+        Graphics2D g2d = (Graphics2D)  g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-        g2d.setStroke(new BasicStroke());
+        g2d.setStroke(new  BasicStroke());
+
         g2d.setColor(this.color);
         if (point.size() > 1) {
             this.p1 = point.get(0);
