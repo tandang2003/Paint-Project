@@ -13,7 +13,9 @@ public class MyPanel extends JPanel {
     DrawPaint drawPaint;
 
 
+
     MyPanel(Controller controller) {
+
         colorPanel = new ColorPanel(controller);
         shapPanel = new ShapPanel(controller);
         drawPaint = new DrawPaint(controller);

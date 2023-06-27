@@ -25,7 +25,9 @@ public class DrawPaint extends JPanel {
     public void paintComponent(Graphics g) {
         setBackground(Color.WHITE);
         super.paintComponent(g);
+
         for (AShape shape : controller.getListShape()) {
+
             shape.draw(g);
         }
     }

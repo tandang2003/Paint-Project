@@ -1,5 +1,6 @@
 package controller;
 
+
 import model.*;
 import model.Point;
 import view.ColorPanel;
@@ -19,6 +20,7 @@ import model.Pencil;
 import model.Point;
 import model.ShapeState;
 import view.ColorPanel;
+
 import view.MyFrame;
 
 import javax.imageio.ImageIO;
@@ -29,6 +31,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,11 +39,13 @@ public class Controller {
     MyFrame myFrame;
     List<AShape> listShape = new ArrayList<>();
 
+
     JPanel panel;
 
     public Controller() {
         initView();
         panel = this.myFrame.getDrawPaint();
+
     }
 
 
@@ -51,13 +56,16 @@ public class Controller {
                 String actionCommand = e.getActionCommand();
                 int color = Integer.valueOf(actionCommand);
                 ShapeState.setCurrColor(ColorPanel.colors[color]);
+
                 System.out.println("chay mau");
+
 
 
             }
         };
 
     }
+
 
     //shape actionlistener
     public ActionListener getShapeAction(){
@@ -88,6 +96,7 @@ public class Controller {
         };
     }
 
+
     public void initView() {
         myFrame = new MyFrame(this);
     }
@@ -107,8 +116,10 @@ public class Controller {
                 ShapeState.createShape();
                 listShape.add(ShapeState.currShape);
 
+
                 ShapeState.currShape.setP1(new Point(e.getX(),e.getY()));
             }
+
 
 
             @Override
@@ -116,6 +127,7 @@ public class Controller {
                 ShapeState.currShape.setP2(new Point(mouseEvent.getX(),mouseEvent.getY()));
                 repaintDrawPaint();
                 ShapeState.createShape();
+
             }
         };
     }
@@ -135,10 +147,12 @@ public class Controller {
             @Override
             public void mouseMoved(MouseEvent mouseEvent) {
                 ShapeState.currShape.setP1(new Point(mouseEvent.getX(), mouseEvent.getY()));
+
             }
 
         };
     }
+
 
     public static void main(String[] args) {
         new Controller();
@@ -175,6 +189,21 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
+    public MouseMotionListener getMouseMotionListener() {
+        return new MouseMotionListener() {
+            @Override
+            public void mouseDragged(MouseEvent mouseEvent) {
+                ShapeState.currShape.setP2(new Point(mouseEvent.getX(),mouseEvent.getY()));
+                repaintDrawPaint();
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent mouseEvent) {
+
+            }
+        };
+    }
 }
