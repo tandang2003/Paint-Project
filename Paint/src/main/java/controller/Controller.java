@@ -1,12 +1,12 @@
 package controller;
 
+
 import model.AShape;
 import model.Pencil;
 import model.Point;
 import model.ShapeState;
 import view.ColorPanel;
 import view.MyFrame;
-
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JFileChooser;
@@ -21,6 +21,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +52,7 @@ public class Controller {
         };
 
     }
+
 
 
     public ActionListener getShapeAction(){
@@ -118,6 +120,7 @@ public class Controller {
         };
     }
 
+
     public ActionListener expAction() {
         return e -> {
             JFileChooser fileChooser = new JFileChooser();
@@ -147,8 +150,10 @@ public class Controller {
         }
     }
 
+
     public static void main(String[] args) {
         new Controller();
     }
+
 
 }
