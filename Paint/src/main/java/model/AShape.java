@@ -1,22 +1,19 @@
 package model;
 
-import java.awt.*;
+
+import java.awt.Color;
+import java.awt.Graphics;
 
 public abstract class AShape {
-
-
     protected Point p1;
     protected Point p2;
-    protected Color color;
 
+    protected Color color;
     public AShape(Point p1, Point p2, Color color) {
         this.p1 = p1;
         this.p2 = p2;
         this.color = color;
     }
-
-
-
     public AShape(Point p1, Point p2) {
         this.p1 = p1;
         this.p2 = p2;

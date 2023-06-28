@@ -1,19 +1,23 @@
 package model;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Graphics;
+import java.awt.BasicStroke;
+import java.awt.RenderingHints;
 import java.util.ArrayList;
 
 public class Pencil extends AShape {
     private ArrayList<Point> point = new ArrayList<>();
+
     public Pencil(Point p1, Point p2, Color color) {
         super(p1, p2, color);
     }
 
-    public Pencil(Point p1, Point p2) {
-        super(p1, p2);
-    }
-    public Pencil(){
-        color=Color.black;
+
+    public Pencil() {
+
+
     }
 
     public void addPoint(Point p) {
