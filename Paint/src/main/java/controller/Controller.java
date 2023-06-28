@@ -52,8 +52,9 @@ public class Controller {
 
     }
 
-    public ActionListener getShapeAction() {
-        return new ActionListener() {
+
+    public ActionListener getShapeAction(){
+        return new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("chay shape");
@@ -116,7 +117,6 @@ public class Controller {
             }
         };
     }
-
 
     public ActionListener expAction() {
         return e -> {
