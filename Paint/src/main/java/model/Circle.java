@@ -1,6 +1,7 @@
 package model;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 public class Circle extends AShape {
     private Point p1;
     private Point p2;
