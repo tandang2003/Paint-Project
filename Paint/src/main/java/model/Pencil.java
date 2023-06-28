@@ -8,9 +8,6 @@ public class Pencil extends AShape {
     public Pencil(Point p1, Point p2, Color color) {
         super(p1, p2, color);
     }
-    public Pencil(Point p1, Point p2) {
-        super(p1, p2);
-    }
     public Pencil(){
         color=Color.black;
     }
