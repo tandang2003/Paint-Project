@@ -7,9 +7,17 @@ import model.ShapeState;
 import view.ColorPanel;
 import view.MyFrame;
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import javax.swing.JPanel;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import java.awt.Component;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
@@ -38,13 +46,10 @@ public class Controller {
 
                 System.out.println("chay mau");
 
-
-
             }
         };
 
     }
-
 
     public ActionListener getShapeAction(){
         return new ActionListener(){
@@ -85,11 +90,9 @@ public class Controller {
                 ShapeState.currShape.setP1(new Point(e.getX(),e.getY()));
             }
 
-
-
             @Override
             public void mouseReleased(MouseEvent mouseEvent) {
-                ShapeState.currShape.setP2(new Point(mouseEvent.getX(),mouseEvent.getY()));
+                ShapeState.currShape.setP2(new Point(mouseEvent.getX(), mouseEvent.getY()));
                 repaintDrawPaint();
                 ShapeState.createShape();
 
@@ -118,10 +121,6 @@ public class Controller {
         };
     }
 
-
-    public static void main(String[] args) {
-        new Controller();
-    }
 
 
     public ActionListener expAction() {
@@ -161,15 +160,55 @@ public class Controller {
     public MouseMotionListener getMouseMotionListener() {
         return new MouseMotionListener() {
             @Override
-            public void mouseDragged(MouseEvent mouseEvent) {
-                ShapeState.currShape.setP2(new Point(mouseEvent.getX(),mouseEvent.getY()));
+            public void mouseDragged(MouseEvent e) {
+                ShapeState.currShape.setP2(new Point(e.getX(), e.getY()));
+                if (ShapeState.typeShape == 8) {
+                    ((Pencil) ShapeState.currShape).addPoint(new Point(e.getX(), e.getY()));
+                }
                 repaintDrawPaint();
             }
-
             @Override
             public void mouseMoved(MouseEvent mouseEvent) {
-
+                ShapeState.currShape.setP1(new Point(mouseEvent.getX(), mouseEvent.getY()));
             }
         };
+    }
+
+
+
+    public static void main(String[] args) {
+        new Controller();
+    }
+
+
+    public ActionListener expAction() {
+       return e -> {
+           JFileChooser fileChooser = new JFileChooser();
+           int result = fileChooser.showSaveDialog(null);
+           if (result == JFileChooser.APPROVE_OPTION) {
+               File selectedFile = fileChooser.getSelectedFile();
+               String fileName = selectedFile.getAbsolutePath();
+               if (!fileName.endsWith(".png") || !fileName.endsWith(".jpg") || !fileName.endsWith(".gif")){
+                   fileName += ".png";
+               }
+               exportToImage(panel, fileName);
+               JOptionPane.showMessageDialog(panel, "File exported to: " + fileName);
+           }
+       };
+
+    }
+
+
+    public void exportToImage(Component component, String outputFileName) {
+        BufferedImage bufferedImage = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
+        try {
+            Graphics2D graphics2D = bufferedImage.createGraphics();
+            component.paint(graphics2D);
+            graphics2D.dispose();
+            ImageIO.write(bufferedImage, "png", new File(outputFileName));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }
