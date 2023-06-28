@@ -43,9 +43,7 @@ public class Controller {
                 String actionCommand = e.getActionCommand();
                 int color = Integer.valueOf(actionCommand);
                 ShapeState.setCurrColor(ColorPanel.colors[color]);
-
                 System.out.println("chay mau");
-
             }
         };
 
@@ -55,18 +53,13 @@ public class Controller {
 
     public ActionListener getShapeAction(){
         return new ActionListener(){
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("chay shape");
                 String shapeActionCommand = e.getActionCommand();
                 System.out.println(shapeActionCommand);
                 int shapeindex = Integer.valueOf(shapeActionCommand);
-
                 ShapeState.setShapeIndexing(shapeindex);
-
-
-
             }
         };
     }
@@ -90,21 +83,13 @@ public class Controller {
             public void mousePressed(MouseEvent e) {
                 ShapeState.createShape();
                 listShape.add(ShapeState.currShape);
-
-
-
                 ShapeState.currShape.setP1(new Point(e.getX(),e.getY()));
-
             }
-
-
-
             @Override
             public void mouseReleased(MouseEvent mouseEvent) {
                 ShapeState.currShape.setP2(new Point(mouseEvent.getX(), mouseEvent.getY()));
                 repaintDrawPaint();
                 ShapeState.createShape();
-
             }
         };
     }
@@ -120,13 +105,10 @@ public class Controller {
                 }
                 repaintDrawPaint();
             }
-
             @Override
             public void mouseMoved(MouseEvent mouseEvent) {
                 ShapeState.currShape.setP1(new Point(mouseEvent.getX(), mouseEvent.getY()));
-
             }
-
         };
     }
 
@@ -148,7 +130,6 @@ public class Controller {
                }
                exportToImage(panel, fileName);
                JOptionPane.showMessageDialog(panel, "File exported to: " + fileName);
-
            }
        };
 
@@ -158,32 +139,13 @@ public class Controller {
     public void exportToImage(Component component, String outputFileName) {
         BufferedImage bufferedImage = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
         try {
-
             Graphics2D graphics2D = bufferedImage.createGraphics();
             component.paint(graphics2D);
             graphics2D.dispose();
-
             ImageIO.write(bufferedImage, "png", new File(outputFileName));
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-    }
-
-    public MouseMotionListener getMouseMotionListener() {
-        return new MouseMotionListener() {
-            @Override
-            public void mouseDragged(MouseEvent mouseEvent) {
-                ShapeState.currShape.setP2(new Point(mouseEvent.getX(),mouseEvent.getY()));
-                repaintDrawPaint();
-            }
-
-            @Override
-            public void mouseMoved(MouseEvent mouseEvent) {
-
-            }
-        };
     }
 }
