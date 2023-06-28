@@ -13,15 +13,18 @@ public class MyFrame extends JFrame {
         add(panel);
         setSize(800, 800);
         setVisible(true);
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
 
     public void repaintDrawPaint() {
         panel.repaintDrawPaint();
+
     }
 
     public JPanel getDrawPaint(){
         return panel.drawPaint;
+
     }
 }

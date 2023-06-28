@@ -32,6 +32,7 @@ public class Controller {
     public Controller() {
         initView();
         panel = this.myFrame.getDrawPaint();
+
     }
 
 
@@ -42,15 +43,19 @@ public class Controller {
                 String actionCommand = e.getActionCommand();
                 int color = Integer.valueOf(actionCommand);
                 ShapeState.setCurrColor(ColorPanel.colors[color]);
+
                 System.out.println("chay mau");
+
             }
         };
 
     }
 
-    //shape actionlistener
-    public ActionListener getShapeAction() {
-        return new ActionListener() {
+
+
+    public ActionListener getShapeAction(){
+        return new ActionListener(){
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("chay shape");
@@ -59,9 +64,13 @@ public class Controller {
                 int shapeindex = Integer.valueOf(shapeActionCommand);
 
                 ShapeState.setShapeIndexing(shapeindex);
+
+
+
             }
         };
     }
+
 
     public void initView() {
         myFrame = new MyFrame(this);
@@ -81,8 +90,13 @@ public class Controller {
             public void mousePressed(MouseEvent e) {
                 ShapeState.createShape();
                 listShape.add(ShapeState.currShape);
-                ShapeState.currShape.setP1(new Point(e.getX(), e.getY()));
+
+
+
+                ShapeState.currShape.setP1(new Point(e.getX(),e.getY()));
+
             }
+
 
 
             @Override
@@ -90,6 +104,7 @@ public class Controller {
                 ShapeState.currShape.setP2(new Point(mouseEvent.getX(), mouseEvent.getY()));
                 repaintDrawPaint();
                 ShapeState.createShape();
+
             }
         };
     }
@@ -109,10 +124,12 @@ public class Controller {
             @Override
             public void mouseMoved(MouseEvent mouseEvent) {
                 ShapeState.currShape.setP1(new Point(mouseEvent.getX(), mouseEvent.getY()));
+
             }
 
         };
     }
+
 
     public static void main(String[] args) {
         new Controller();
@@ -120,20 +137,21 @@ public class Controller {
 
 
     public ActionListener expAction() {
-        return e -> {
-            JFileChooser fileChooser = new JFileChooser();
-            int result = fileChooser.showSaveDialog(panel);
-            if (result == JFileChooser.APPROVE_OPTION) {
-                File selectedFile = fileChooser.getSelectedFile();
-                String fileName = selectedFile.getAbsolutePath();
-                if (!fileName.endsWith(".png") || !fileName.endsWith(".jpg") || !fileName.endsWith(".gif")) {
-                    fileName += ".png";
-                }
-                exportToImage(panel, fileName);
-                JOptionPane.showMessageDialog(panel, "File exported to: " + fileName);
+       return e -> {
+           JFileChooser fileChooser = new JFileChooser();
+           int result = fileChooser.showSaveDialog(null);
+           if (result == JFileChooser.APPROVE_OPTION) {
+               File selectedFile = fileChooser.getSelectedFile();
+               String fileName = selectedFile.getAbsolutePath();
+               if (!fileName.endsWith(".png") || !fileName.endsWith(".jpg") || !fileName.endsWith(".gif")){
+                   fileName += ".png";
+               }
+               exportToImage(panel, fileName);
+               JOptionPane.showMessageDialog(panel, "File exported to: " + fileName);
 
-            }
-        };
+           }
+       };
+
     }
 
 
@@ -151,6 +169,21 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
+    public MouseMotionListener getMouseMotionListener() {
+        return new MouseMotionListener() {
+            @Override
+            public void mouseDragged(MouseEvent mouseEvent) {
+                ShapeState.currShape.setP2(new Point(mouseEvent.getX(),mouseEvent.getY()));
+                repaintDrawPaint();
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent mouseEvent) {
+
+            }
+        };
+    }
 }
