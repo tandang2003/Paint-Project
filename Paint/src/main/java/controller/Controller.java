@@ -7,6 +7,7 @@ import model.Point;
 import model.ShapeState;
 import view.ColorPanel;
 import view.MyFrame;
+
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JFileChooser;
@@ -54,9 +55,8 @@ public class Controller {
     }
 
 
-
-    public ActionListener getShapeAction(){
-        return new ActionListener(){
+    public ActionListener getShapeAction() {
+        return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("chay shape");
