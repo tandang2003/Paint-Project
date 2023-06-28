@@ -1,6 +1,9 @@
 package model;
 
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class Square extends AShape {
     public Square(Point p1, Point p2, Color color) {

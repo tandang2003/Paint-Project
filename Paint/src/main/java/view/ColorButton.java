@@ -1,8 +1,12 @@
 package view;
 
-import javax.swing.*;
-import java.awt.*;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 
 public class ColorButton extends JButton {
     Color color;

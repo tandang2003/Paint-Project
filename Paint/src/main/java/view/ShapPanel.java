@@ -1,12 +1,19 @@
 package view;
 
-import controller.Controller;
+import java.awt.Color;
+import java.awt.Image;
 
-import javax.swing.*;
-
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
-import java.awt.*;
+import controller.Controller;
+
+
 
 public class ShapPanel extends JPanel {
     public static final int LINE = 1;

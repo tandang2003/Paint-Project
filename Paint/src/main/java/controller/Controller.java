@@ -1,17 +1,19 @@
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
+import java.util.List;
+
 import model.AShape;
 import model.Point;
 import model.ShapeState;
 import view.ColorPanel;
-import model.ShapeState;
-import view.ColorPanel;
 import view.MyFrame;
-
-import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Controller {
     MyFrame myFrame;

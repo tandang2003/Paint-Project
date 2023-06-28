@@ -1,12 +1,12 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
 import controller.Controller;
 import model.AShape;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DrawPaint extends JPanel {
 

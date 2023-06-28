@@ -1,11 +1,11 @@
 package view;
 
+import javax.swing.JFrame;
+
 import controller.Controller;
-import model.ShapeState;
 
 
-import javax.swing.*;
-import java.awt.*;
+
 
 public class MyFrame extends JFrame {
     private MyPanel panel;
