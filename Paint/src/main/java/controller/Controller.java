@@ -1,16 +1,13 @@
 package controller;
 
-
 import model.*;
 import model.Point;
 import view.ColorPanel;
 import model.ShapeState;
 import view.ColorPanel;
 import view.MyFrame;
-
 import java.awt.*;
 import java.awt.event.*;
-
 import com.itextpdf.awt.PdfGraphics2D;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfContentByte;
@@ -20,7 +17,6 @@ import model.Pencil;
 import model.Point;
 import model.ShapeState;
 import view.ColorPanel;
-
 import view.MyFrame;
 
 import javax.imageio.ImageIO;
@@ -206,4 +202,5 @@ public class Controller {
             }
         };
     }
+
 }
