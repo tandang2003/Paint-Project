@@ -14,7 +14,9 @@ public class Pencil extends AShape {
         super(p1, p2, color);
     }
 
+
     public Pencil() {
+
 
     }
 
