@@ -2,15 +2,18 @@ package view;
 
 import controller.Controller;
 
-import javax.swing.*;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.UIManager;
+import javax.swing.ImageIcon;
 
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.BoxLayout;
+import java.awt.Color;
+import java.awt.Image;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class ShapPanel extends JPanel {
-    //    ActionListener shapeAction;
     public static final int LINE = 1;
     public static final int CIRCLE = 2;
     public static final int REC = 3;
@@ -20,9 +23,6 @@ public class ShapPanel extends JPanel {
     public static final int BALANCER = 6;
     public static final int DIAMOND = 7;
     public static final int PEN = 8;
-
-    static int padding = 5;
-    int shapeType;
 
     public ShapPanel(Controller controller) {
 
