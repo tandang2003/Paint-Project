@@ -1,6 +1,7 @@
 package model;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 public class Circle extends AShape {
     private Point p1;
     private Point p2;
@@ -68,7 +69,7 @@ public class Circle extends AShape {
 
 
     public void draw(Graphics g) {
-        g.setColor(Color.black);
+        g.setColor(color);
         if (!isFill())
             g.drawOval(Math.min(p1.x, p2.x), Math.min(p1.y, p2.y), Math.abs(p1.x - p2.x), Math.abs(p1.y - p2.y));
         else

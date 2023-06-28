@@ -7,9 +7,17 @@ import model.ShapeState;
 import view.ColorPanel;
 import view.MyFrame;
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import javax.swing.JPanel;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import java.awt.Component;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
@@ -38,16 +46,16 @@ public class Controller {
 
                 System.out.println("chay mau");
 
-
-
             }
         };
 
     }
 
 
+
     public ActionListener getShapeAction(){
         return new ActionListener(){
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("chay shape");
@@ -56,6 +64,8 @@ public class Controller {
                 int shapeindex = Integer.valueOf(shapeActionCommand);
 
                 ShapeState.setShapeIndexing(shapeindex);
+
+
 
             }
         };
@@ -82,14 +92,16 @@ public class Controller {
                 listShape.add(ShapeState.currShape);
 
 
+
                 ShapeState.currShape.setP1(new Point(e.getX(),e.getY()));
+
             }
 
 
 
             @Override
             public void mouseReleased(MouseEvent mouseEvent) {
-                ShapeState.currShape.setP2(new Point(mouseEvent.getX(),mouseEvent.getY()));
+                ShapeState.currShape.setP2(new Point(mouseEvent.getX(), mouseEvent.getY()));
                 repaintDrawPaint();
                 ShapeState.createShape();
 
@@ -102,9 +114,9 @@ public class Controller {
         return new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
-                ShapeState.currShape.setP2(new Point(e.getX(),e.getY()));
-                if (ShapeState.typeShape == 8){
-                    ((Pencil)ShapeState.currShape).addPoint(new Point(e.getX(),e.getY()));
+                ShapeState.currShape.setP2(new Point(e.getX(), e.getY()));
+                if (ShapeState.typeShape == 8) {
+                    ((Pencil) ShapeState.currShape).addPoint(new Point(e.getX(), e.getY()));
                 }
                 repaintDrawPaint();
             }
@@ -139,7 +151,9 @@ public class Controller {
 
            }
        };
+
     }
+
 
     public void exportToImage(Component component, String outputFileName) {
         BufferedImage bufferedImage = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
