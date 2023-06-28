@@ -6,7 +6,6 @@ import model.Point;
 import model.ShapeState;
 import view.ColorPanel;
 import view.MyFrame;
-
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JFileChooser;
@@ -139,15 +138,16 @@ public class Controller {
 
 
     public void exportToImage(Component component, String outputFileName) {
-        BufferedImage img = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_RGB);
+        BufferedImage bufferedImage = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
         try {
-            Graphics2D graphics2D = img.createGraphics();
-            component.print(graphics2D);
+
+            Graphics2D graphics2D = bufferedImage.createGraphics();
+            component.paint(graphics2D);
             graphics2D.dispose();
 
-            ImageIO.write(img, "png", new File(outputFileName));
-            ImageIO.write(img, "ipg", new File(outputFileName));
-            ImageIO.write(img, "gif", new File(outputFileName));
+            ImageIO.write(bufferedImage, "png", new File(outputFileName));
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
