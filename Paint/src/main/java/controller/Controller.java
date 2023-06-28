@@ -1,6 +1,5 @@
 package controller;
 
-
 import model.AShape;
 import model.Pencil;
 import model.Point;
@@ -21,14 +20,12 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
     MyFrame myFrame;
     List<AShape> listShape = new ArrayList<>();
-
 
     JPanel panel;
 
@@ -53,8 +50,6 @@ public class Controller {
         };
 
     }
-
-
 
     public ActionListener getShapeAction(){
         return new ActionListener(){
@@ -131,7 +126,7 @@ public class Controller {
     public ActionListener expAction() {
        return e -> {
            JFileChooser fileChooser = new JFileChooser();
-           int result = fileChooser.showSaveDialog(panel);
+           int result = fileChooser.showSaveDialog(null);
            if (result == JFileChooser.APPROVE_OPTION) {
                File selectedFile = fileChooser.getSelectedFile();
                String fileName = selectedFile.getAbsolutePath();
@@ -146,15 +141,16 @@ public class Controller {
     }
 
     public void exportToImage(Component component, String outputFileName) {
-        BufferedImage img = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
+        BufferedImage bufferedImage = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
         try {
-            Graphics2D graphics2D = img.createGraphics();
-            component.print(graphics2D);
+
+            Graphics2D graphics2D = bufferedImage.createGraphics();
+            component.paint(graphics2D);
             graphics2D.dispose();
 
-            ImageIO.write(img, "png", new File(outputFileName));
-            ImageIO.write(img, "ipg", new File(outputFileName));
-            ImageIO.write(img, "gif", new File(outputFileName));
+            ImageIO.write(bufferedImage, "png", new File(outputFileName));
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -177,6 +173,7 @@ public class Controller {
             }
         };
     }
+
 
 
     public static void main(String[] args) {
