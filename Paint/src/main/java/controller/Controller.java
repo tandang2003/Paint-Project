@@ -29,7 +29,6 @@ public class Controller {
     MyFrame myFrame;
     List<AShape> listShape = new ArrayList<>();
 
-
     JPanel panel;
 
     public Controller() {
@@ -90,9 +89,7 @@ public class Controller {
             public void mousePressed(MouseEvent e) {
                 ShapeState.createShape();
                 listShape.add(ShapeState.currShape);
-
-
-                ShapeState.currShape.setP1(new Point(e.getX(),e.getY()));
+                ShapeState.currShape.setP1(new Point(e.getX(), e.getY()));
             }
 
             @Override
@@ -100,66 +97,10 @@ public class Controller {
                 ShapeState.currShape.setP2(new Point(mouseEvent.getX(), mouseEvent.getY()));
                 repaintDrawPaint();
                 ShapeState.createShape();
-
             }
         };
     }
 
-
-    public MouseMotionListener getMouseMotionListener() {
-        return new MouseMotionListener() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                ShapeState.currShape.setP2(new Point(e.getX(),e.getY()));
-                if (ShapeState.typeShape == 8){
-                    ((Pencil)ShapeState.currShape).addPoint(new Point(e.getX(),e.getY()));
-                }
-                repaintDrawPaint();
-            }
-
-            @Override
-            public void mouseMoved(MouseEvent mouseEvent) {
-                ShapeState.currShape.setP1(new Point(mouseEvent.getX(), mouseEvent.getY()));
-
-            }
-
-        };
-    }
-
-
-
-    public ActionListener expAction() {
-       return e -> {
-           JFileChooser fileChooser = new JFileChooser();
-           int result = fileChooser.showSaveDialog(panel);
-           if (result == JFileChooser.APPROVE_OPTION) {
-               File selectedFile = fileChooser.getSelectedFile();
-               String fileName = selectedFile.getAbsolutePath();
-               if (!fileName.endsWith(".png") || !fileName.endsWith(".jpg") || !fileName.endsWith(".gif")){
-                   fileName += ".png";
-               }
-               exportToImage(panel, fileName);
-               JOptionPane.showMessageDialog(panel, "File exported to: " + fileName);
-
-           }
-       };
-    }
-
-    public void exportToImage(Component component, String outputFileName) {
-        BufferedImage img = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
-        try {
-            Graphics2D graphics2D = img.createGraphics();
-            component.print(graphics2D);
-            graphics2D.dispose();
-
-            ImageIO.write(img, "png", new File(outputFileName));
-            ImageIO.write(img, "ipg", new File(outputFileName));
-            ImageIO.write(img, "gif", new File(outputFileName));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public MouseMotionListener getMouseMotionListener() {
         return new MouseMotionListener() {
@@ -171,6 +112,7 @@ public class Controller {
                 }
                 repaintDrawPaint();
             }
+
             @Override
             public void mouseMoved(MouseEvent mouseEvent) {
                 ShapeState.currShape.setP1(new Point(mouseEvent.getX(), mouseEvent.getY()));
@@ -179,28 +121,22 @@ public class Controller {
     }
 
 
-    public static void main(String[] args) {
-        new Controller();
-    }
-
-
     public ActionListener expAction() {
-       return e -> {
-           JFileChooser fileChooser = new JFileChooser();
-           int result = fileChooser.showSaveDialog(null);
-           if (result == JFileChooser.APPROVE_OPTION) {
-               File selectedFile = fileChooser.getSelectedFile();
-               String fileName = selectedFile.getAbsolutePath();
-               if (!fileName.endsWith(".png") || !fileName.endsWith(".jpg") || !fileName.endsWith(".gif")){
-                   fileName += ".png";
-               }
-               exportToImage(panel, fileName);
-               JOptionPane.showMessageDialog(panel, "File exported to: " + fileName);
-           }
-       };
+        return e -> {
+            JFileChooser fileChooser = new JFileChooser();
+            int result = fileChooser.showSaveDialog(null);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                String fileName = selectedFile.getAbsolutePath();
+                if (!fileName.endsWith(".png") || !fileName.endsWith(".jpg") || !fileName.endsWith(".gif")) {
+                    fileName += ".png";
+                }
+                exportToImage(panel, fileName);
+                JOptionPane.showMessageDialog(panel, "File exported to: " + fileName);
 
+            }
+        };
     }
-
 
     public void exportToImage(Component component, String outputFileName) {
         BufferedImage bufferedImage = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
@@ -212,6 +148,12 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
+
+
+    public static void main(String[] args) {
+        new Controller();
+    }
+
+
 }
