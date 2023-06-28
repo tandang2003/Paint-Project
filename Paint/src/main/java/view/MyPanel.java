@@ -1,11 +1,10 @@
 package view;
 
 import controller.Controller;
-import model.ShapeState;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.BorderLayout;
 
 public class MyPanel extends JPanel {
     ColorPanel colorPanel;
