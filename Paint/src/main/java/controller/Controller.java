@@ -28,6 +28,7 @@ import java.util.List;
 
 public class Controller {
     MyFrame myFrame;
+    //tinh da o day
     List<AShape> listShape = new ArrayList<>();
 
     JPanel panel;
