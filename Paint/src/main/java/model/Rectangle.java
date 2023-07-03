@@ -9,9 +9,7 @@ public class Rectangle extends AShape {
     private Point p2;
     private Color color;
     private boolean fill = false;
-
-    public Rectangle() {
-    }
+    
 
     public Rectangle(Point p1, Point p2) {
         this.p1 = p1;

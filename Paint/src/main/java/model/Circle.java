@@ -7,11 +7,6 @@ public class Circle extends AShape {
     private Color color;
     private boolean fill = false;
 
-    public Circle() {
-    }
-
-    
-
     public Circle(Point p1, Point p2) {
         this.p1 = p1;
         this.p2 = p2;
