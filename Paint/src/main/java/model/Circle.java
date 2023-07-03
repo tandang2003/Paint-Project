@@ -10,9 +10,6 @@ public class Circle extends AShape {
     private Color color;
     private boolean fill = false;
 
-    public Circle() {
-    }
-
     public Circle(Point p1, Point p2) {
         this.p1 = p1;
         this.p2 = p2;
@@ -79,11 +76,5 @@ public class Circle extends AShape {
         else
             g.fillOval(Math.min(p1.x, p2.x), Math.min(p1.y, p2.y), Math.abs(p1.x - p2.x), Math.abs(p1.y - p2.y));
 
-    }
-
-
-    public boolean getFill() {
-        // TODO Auto-generated method stub
-        return fill;
     }
 }

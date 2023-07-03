@@ -9,9 +9,7 @@ public class Rectangle extends AShape {
     private Point p2;
     private Color color;
     private boolean fill = false;
-
-    public Rectangle() {
-    }
+    
 
     public Rectangle(Point p1, Point p2) {
         this.p1 = p1;
@@ -68,13 +66,6 @@ public class Rectangle extends AShape {
         this.fill = fill;
     }
 
-
-    public boolean getFill() {
-        // TODO Auto-generated method stub
-        return fill;
-    }
-
-
     public String toString() {
         return "Rectangle{" + "p1=" + p1 + ", p2=" + p2 + ", color=" + color + '}';
     }
@@ -82,7 +73,6 @@ public class Rectangle extends AShape {
 
     public void draw(Graphics g) {
         g.setColor(color);
-//		Pencil.point.clear();
         if (!isFill()) {
             g.drawRect(Math.min(p1.x, p2.x), Math.min(p1.y, p2.y), Math.abs(p1.x - p2.x), Math.abs(p1.y - p2.y));
 
